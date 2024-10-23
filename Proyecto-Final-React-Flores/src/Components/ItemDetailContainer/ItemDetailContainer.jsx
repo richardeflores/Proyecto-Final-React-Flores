@@ -1,28 +1,25 @@
 import { useParams } from "react-router-dom";
-import Spinner from "./Loading";
-import ItemDetailed from "./ItemDetailed";
+import Spinner from "../Loader/Loading";
+import ItemDetailed from "../ItemDetail/ItemDetailed";
 import { useState, useEffect } from "react";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase/Config";
 
-function DetailedCard() {
-	const [data, SetData] = useState({});
-	const { id } = useParams();
+const ItemDetailContainer = () => {
+	const [item, setItem] = useState(null);
+	const id = useParams().id;
 
 	useEffect(() => {
-		const db = getFirestore();
-		const itemsCollection = collection(db, "items");
-		getDocs(itemsCollection).then((snapshot) => {
-			const items = snapshot.docs.map((doc) => doc.data());
-			SetData(items);
+		const docRef = doc(db, "items", id);
+		getDoc(docRef).then((resp) => {
+			setItem({ ...resp.data(), id: resp.id });
 		});
 	}, [id]);
 
-	return data.length === 0 ? (
-		<Spinner />
-	) : (
+	return (
 		<>
-			<ItemDetailed product={data} />
+			<ItemDetailed {...item} />
 		</>
 	);
-}
-export default DetailedCard;
+};
+export default ItemDetailContainer;

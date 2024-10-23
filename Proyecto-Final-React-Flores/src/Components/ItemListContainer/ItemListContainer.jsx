@@ -3,35 +3,36 @@ import CardItems from "../ItemList/CardItems";
 import Container from "react-bootstrap/Container";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase/Config";
 
 const ItemListContainer = () => {
-	const [data, SetData] = useState([]);
-	let { idCategory } = useParams();
+	const [products, setProducts] = useState([]);
+
+	const category = useParams().category;
 
 	useEffect(() => {
-		const db = getFirestore();
-		const itemsCollection = collection(db, "items");
-		getDocs(itemsCollection).then((snapshot) => {
-			const items = snapshot.docs.map((doc) => ({
-				id: doc.id,
-				...doc.data(),
-			}));
-			SetData(items);
+		const productsRef = collection(db, "items");
+		getDocs(productsRef).then((res) => {
+			setProducts(
+				res.docs.map((product) => {
+					return { ...product.data(), id: product.id };
+				})
+			);
 		});
-	}, [idCategory]);
+	}, [category]);
 
 	return (
 		<>
 			<Container>
-				{data.map((products) => (
+				{products.map((product) => (
 					<CardItems
-						key={products.id}
-						id={products.id}
-						image={products.image}
-						title={products.title}
-						category={products.category}
-						price={products.price}
+						key={product.id}
+						id={product.id}
+						image={product.image}
+						title={product.title}
+						category={product.category}
+						price={product.price}
 					/>
 				))}
 			</Container>

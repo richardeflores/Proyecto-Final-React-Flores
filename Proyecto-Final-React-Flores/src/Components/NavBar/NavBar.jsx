@@ -9,7 +9,7 @@ import { Link, Outlet } from "react-router-dom";
 import ContainerCart from "../ContainerCartWidget/ContainerCartWidget";
 import ContextCart from "../Context/ContextCart";
 
-function NavBar() {
+const NavBar = () => {
 	return (
 		<ContextCart>
 			<>
@@ -64,5 +64,5 @@ function NavBar() {
 			</>
 		</ContextCart>
 	);
-}
+};
 export default NavBar;
