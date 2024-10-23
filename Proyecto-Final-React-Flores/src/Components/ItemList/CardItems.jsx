@@ -15,9 +15,7 @@ function CardItems(props) {
 						$ {props.price}
 					</h6>
 					<div className="card-buttons">
-						<Link
-							className="btn btn-primary btn-lg"
-							to={`/Preentrega2-React-Flores/item/${props.id}`}>
+						<Link className="btn btn-primary btn-lg" to={`/item/${props.id}`}>
 							See More
 						</Link>{" "}
 						<ButtonAddToCart id={props.id} />

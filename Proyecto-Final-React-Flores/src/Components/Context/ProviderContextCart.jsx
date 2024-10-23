@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import products from "../Products/products";
 import {
 	getFirestore,
 	collection,

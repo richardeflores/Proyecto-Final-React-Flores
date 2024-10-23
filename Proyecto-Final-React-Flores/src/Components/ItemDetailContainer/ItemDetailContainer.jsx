@@ -1,22 +1,20 @@
-import FetchSimulation from "../../FetchSimulation";
-import products from "../Products/products";
 import { useParams } from "react-router-dom";
 import Spinner from "./Loading";
 import ItemDetailed from "./ItemDetailed";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 function DetailedCard() {
 	const [data, SetData] = useState({});
 	const { id } = useParams();
 
 	useEffect(() => {
-		FetchSimulation(
-			products.find((filtered) => filtered.id == Number(id)),
-			1000
-		)
-			.then((response) => SetData(response))
-			.catch((error) => console.log(error));
+		const db = getFirestore();
+		const itemsCollection = collection(db, "items");
+		getDocs(itemsCollection).then((snapshot) => {
+			const items = snapshot.docs.map((doc) => doc.data());
+			SetData(items);
+		});
 	}, [id]);
 
 	return data.length === 0 ? (

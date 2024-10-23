@@ -13,7 +13,10 @@ const ItemListContainer = () => {
 		const db = getFirestore();
 		const itemsCollection = collection(db, "items");
 		getDocs(itemsCollection).then((snapshot) => {
-			const items = snapshot.docs.map((doc) => doc.data());
+			const items = snapshot.docs.map((doc) => ({
+				id: doc.id,
+				...doc.data(),
+			}));
 			SetData(items);
 		});
 	}, [idCategory]);

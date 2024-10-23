@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { Container, Card, Button, Col, Image } from "react-bootstrap";
-import { FaRegTrashAlt } from "react-icons/fa";
 import { listCartContext } from "../ProviderContext/ProviderContextCart";
 import "./ItemCart.css";
 
@@ -30,7 +29,7 @@ const ItemCart = ({ id, title, price, stock, image }) => {
 						<span>Cantidad: {stock}</span>
 						<span>Subtotal: {`$ ${(stock * price).toFixed(2)}`}</span>
 						<Button variant="primary" onClick={() => remove(id)}>
-							<FaRegTrashAlt />
+							🛒
 						</Button>
 					</Col>
 				</Card>
