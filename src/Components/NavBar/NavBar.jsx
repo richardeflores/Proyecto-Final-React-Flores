@@ -46,10 +46,6 @@ const NavBar = () => {
 									<Link to={"/category/Ninos"} className="dropdown-item">
 										Niños
 									</Link>
-									<NavDropdown.Divider />
-									<Link to={"/category/Mascotas"} className="dropdown-item">
-										Mascotas
-									</Link>
 								</NavDropdown>
 								<Link to={"/contacto"} className="nav-link">
 									Contacto
