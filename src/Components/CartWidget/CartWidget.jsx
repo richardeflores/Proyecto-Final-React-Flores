@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { listCartContext } from "../Context/ProviderContextCart";
+import { ProviderContext } from "../Context/ProviderContext";
 import { controllerShowCart } from "../Context/ContextCart";
 
 const CartWidget = () => {
 	const { setShowCart, showCart } = useContext(controllerShowCart);
-	const { listCart } = useContext(listCartContext);
+
+	const { qtyInCart } = useContext(ProviderContext);
 
 	const cartShowed = () => {
 		setShowCart(showCart === "none" ? "flex" : "none");
@@ -13,7 +14,7 @@ const CartWidget = () => {
 	return (
 		<div className="carrito" onClick={cartShowed}>
 			🛒
-			<span className="badge">{listCart.length}</span>
+			<span className="badge">{qtyInCart()}</span>
 		</div>
 	);
 };

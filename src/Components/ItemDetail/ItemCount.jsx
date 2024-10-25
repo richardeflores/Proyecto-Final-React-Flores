@@ -12,5 +12,5 @@ const ItemCount = ({ cantidad, handleRestar, handleSumar, handleAgregar }) => {
 		</div>
 	);
 };
-
+//Meter bootstrap
 export default ItemCount;

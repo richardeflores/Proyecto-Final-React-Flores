@@ -4,11 +4,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer";
 import Contacto from "./Components/Contacto/Contacto";
-import ProviderContextCart from "./Components/Context/ProviderContextCart";
+import { CartProvider } from "./Components/Context/ProviderContext";
 
 function App() {
 	return (
-		<ProviderContextCart>
+		<CartProvider>
 			<BrowserRouter>
 				<NavBar />
 				<Routes>
@@ -18,7 +18,7 @@ function App() {
 					<Route path="/category/:category" element={<ItemListContainer />} />
 				</Routes>
 			</BrowserRouter>
-		</ProviderContextCart>
+		</CartProvider>
 	);
 }
 

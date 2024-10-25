@@ -1,12 +1,12 @@
 import { Container, Button } from "react-bootstrap";
 import ItemCart from "../CartWidget/ItemInCart/ItemCart";
 import { useContext } from "react";
-import { listCartContext } from "../Context/ProviderContextCart";
+import { ProviderContext } from "../Context/ProviderContext";
 import { controllerShowCart } from "../Context/ContextCart";
 import "./ContainerCartWidget.css";
 
 const ContainerCart = () => {
-	const { listCart, clearCart } = useContext(listCartContext);
+	const { listCart, totalPrice, emptyCart } = useContext(ProviderContext);
 	const { showCart, setShowCart } = useContext(controllerShowCart);
 
 	const style = {
@@ -15,6 +15,10 @@ const ContainerCart = () => {
 
 	const closeCart = () => {
 		setShowCart(showCart === "none" ? "flex" : "none");
+	};
+
+	const clearCart = () => {
+		emptyCart();
 	};
 
 	return (
@@ -49,11 +53,19 @@ const ContainerCart = () => {
 					</div>
 				)}
 			</div>
-			<div className="containerBtnCart">
-				<Button>Checkout</Button>
-				<Button onClick={clearCart}>
-					<h6>🗑️</h6>
-				</Button>
+			<div>
+				{carrito.length !== 0 && (
+					<>
+						{" "}
+						<h2>Precio total: {totalPrice()}</h2>
+						<div className="containerBtnCart">
+							<Button>Checkout</Button>
+							<Button onClick={clearCart}>
+								<h6>🗑️</h6>
+							</Button>
+						</div>
+					</>
+				)}
 			</div>
 		</Container>
 	);

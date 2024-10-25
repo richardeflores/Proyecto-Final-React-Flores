@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { Container, Card, Button, Col, Image } from "react-bootstrap";
-import { listCartContext } from "../ProviderContext/ProviderContextCart";
+import { ProvideContext } from "../Context/ProviderContext";
 import "./ItemCart.css";
 
 const ItemCart = ({ id, title, price, stock, image }) => {
-	const { remove } = useContext(listCartContext);
+	const { remove } = useContext(ProvideContext);
 
 	return (
 		<Container fluid className="itemInCart">
@@ -29,7 +29,7 @@ const ItemCart = ({ id, title, price, stock, image }) => {
 						<span>Cantidad: {stock}</span>
 						<span>Subtotal: {`$ ${(stock * price).toFixed(2)}`}</span>
 						<Button variant="primary" onClick={() => remove(id)}>
-							🛒
+							🗑️
 						</Button>
 					</Col>
 				</Card>

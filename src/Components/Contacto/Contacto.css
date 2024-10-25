@@ -1,0 +1,9 @@
+.mb-3 {
+	width: 400px;
+}
+
+.contenedorFormulario.container {
+	margin: 0 auto;
+	padding: 50px;
+	width: 800px;
+}

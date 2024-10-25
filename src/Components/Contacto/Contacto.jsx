@@ -1,18 +1,55 @@
-function Contacto() {
+import { useForm } from "react-hook-form";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import "./Contacto.css";
+
+const Contacto = () => {
+	const { register, handleSubmit } = useForm();
+
+	const enviar = (data) => {
+		console.log(data);
+	};
+
 	return (
-		<div>
-			<h1>Aquí se supone que va a ir un formulario de contacto</h1>
-			<span>
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque culpa
-				enim assumenda corrupti temporibus facilis facere et odit doloribus
-				exercitationem unde vitae maxime, aspernatur aut, numquam soluta commodi
-				nobis molestias. Voluptate aliquid, illo veritatis veniam accusantium
-				eaque ipsam modi nihil perspiciatis neque sapiente iusto incidunt minus
-				impedit ipsa, ipsum illum velit dolore odit fuga. Odio fugit blanditiis
-				necessitatibus tempore nam. Saepe atque, tempora culpa consectetur
-			</span>
-		</div>
+		<Container className="contenedorFormulario">
+			<Row>
+				<h1 className="tituloFormulario">Contacto</h1>
+			</Row>
+			<Row>
+				<Form onSubmit={handleSubmit(enviar)}>
+					<Form.Group className="mb-3" controlId="formBasicName">
+						<Form.Label>Name</Form.Label>
+						<Form.Control
+							type="name"
+							placeholder="Enter name"
+							{...register("nombre")}
+						/>
+					</Form.Group>
+					<Form.Group className="mb-3" controlId="formBasicEmail">
+						<Form.Label>Email address</Form.Label>
+						<Form.Control
+							type="email"
+							placeholder="Enter email"
+							{...register("email")}
+						/>
+					</Form.Group>
+					<Form.Group className="mb-3" controlId="formBasicPhone">
+						<Form.Label>Phone</Form.Label>
+						<Form.Control
+							type="phone"
+							placeholder="Phone"
+							{...register("phone")}
+						/>
+					</Form.Group>
+					<Button variant="primary" type="submit">
+						Submit
+					</Button>
+				</Form>
+			</Row>
+		</Container>
 	);
-}
+};
 
 export default Contacto;
