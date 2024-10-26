@@ -39,6 +39,12 @@ function App() {
 		return cart.reduce((acc, prod) => acc + prod.price * prod.qty, 0);
 	};
 
+	const emptyCart = () => {
+		setCart([]);
+	};
+
+	console.log(cart);
+
 	return (
 		<>
 			<ProviderContext.Provider
@@ -49,6 +55,7 @@ function App() {
 					listCartContext,
 					remove,
 					totalPrice,
+					emptyCart,
 				}}>
 				<BrowserRouter>
 					<NavBar />

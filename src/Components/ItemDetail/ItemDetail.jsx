@@ -27,6 +27,7 @@ const ItemDetail = ({ item }) => {
 					<Card.Body>
 						<Card.Title>{item.title}</Card.Title>
 						<Card.Text>{item.category}</Card.Text>
+						<Card.Text>Stock: {item.stock}</Card.Text>
 						<Card.Text>{item.description}</Card.Text>
 						<h6 className="card-price" variant="primary">
 							$ {item.price}

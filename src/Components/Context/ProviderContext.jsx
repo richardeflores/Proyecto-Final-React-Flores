@@ -20,10 +20,6 @@ export const ProviderContext = createContext();
 // 		setCart([...newCart, itemAdded]);
 // 	};
 
-// 	const emptyCart = () => {
-// 		setCart([]);
-// 	};
-
 // 	useEffect(() => {
 // 		localStorage.setItem("cart", JSON.stringify(cart));
 // 	}, [cart]);

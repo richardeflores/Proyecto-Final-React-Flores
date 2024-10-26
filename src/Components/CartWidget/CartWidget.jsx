@@ -9,7 +9,7 @@ const CartWidget = () => {
 	const cartShowed = () => {
 		setShowCart(showCart === "none" ? "flex" : "none");
 	};
-
+	console.log(showCart);
 	return (
 		<div className="carrito" onClick={cartShowed}>
 			🛒

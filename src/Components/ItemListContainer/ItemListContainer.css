@@ -39,3 +39,7 @@ button.btn.btn-outline-primary {
 div#botonesItem {
 	text-align: center;
 }
+
+button#addCart {
+	margin-top: 0;
+}

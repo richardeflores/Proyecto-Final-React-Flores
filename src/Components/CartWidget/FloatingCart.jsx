@@ -1,16 +1,17 @@
 import { useContext } from "react";
 import { Container, Card, Button, Col, Image } from "react-bootstrap";
-import { ProviderContext } from "../../Context/ProviderContext";
-import "./ItemCart.css";
+import { ProviderContext } from "../Context/ProviderContext";
+import "./FloatingCart.css";
 
-const ItemCart = () => {
-	const { remove } = useContext(ProviderContext);
+const FloatingCart = () => {
+	const { cart, remove } = useContext(ProviderContext);
 
 	return (
 		<Container fluid className="itemInCart">
 			{cart.map((prod) => (
 				<div>
 					<Card
+						key={prod.id}
 						style={{
 							width: "100%",
 							display: "flex",
@@ -41,4 +42,4 @@ const ItemCart = () => {
 		</Container>
 	);
 };
-export default ItemCart;
+export default FloatingCart;

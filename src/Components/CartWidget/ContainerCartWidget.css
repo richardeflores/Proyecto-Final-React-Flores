@@ -29,3 +29,7 @@ span.emptyCart {
 	display: flex;
 	justify-content: space-between;
 }
+
+h6#btn-cart {
+	margin: auto;
+}

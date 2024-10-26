@@ -1,12 +1,12 @@
 import { Container, Button } from "react-bootstrap";
-import ItemCart from "../../reestructuracion/CartWidget/ItemInCart/ItemCart";
+import ItemCart from "./FloatingCart";
 import { useContext } from "react";
 import { ProviderContext } from "../Context/ProviderContext";
 import { controllerShowCart } from "../Context/ContextCart";
 import "./ContainerCartWidget.css";
 
-const ContainerCart = () => {
-	const { listCart, totalPrice, emptyCart } = useContext(ProviderContext);
+const ContainerCartWidget = () => {
+	const { cart, totalPrice, emptyCart } = useContext(ProviderContext);
 	const { showCart, setShowCart } = useContext(controllerShowCart);
 
 	const style = {
@@ -24,21 +24,24 @@ const ContainerCart = () => {
 	return (
 		<Container className="container-cart" style={style}>
 			<div className="containerClose">
-				<Button onClick={closeCart} className="closeButton">
-					<h6>✖️</h6>
+				<Button
+					variant="outline-primary"
+					onClick={closeCart}
+					className="closeButton">
+					<h6 id="btn-cart">✖️</h6>
 				</Button>
 				<h4 style={{ color: "black", textAlign: "left" }}>
 					This is your product list:
 				</h4>
 			</div>
 			<div>
-				{listCart.length === 0 ? (
+				{cart.length === 0 ? (
 					<span className="emptyCart">
 						Your cart is empty, Let's find some products!.
 					</span>
 				) : (
 					<div className="contenedorLista">
-						{listCart.map((product) => (
+						{cart.map((product) => (
 							<>
 								<ItemCart
 									key={product.id}
@@ -54,7 +57,7 @@ const ContainerCart = () => {
 				)}
 			</div>
 			<div>
-				{carrito.length !== 0 && (
+				{cart.length !== 0 && (
 					<>
 						{" "}
 						<h2>Precio total: {totalPrice()}</h2>
@@ -71,4 +74,4 @@ const ContainerCart = () => {
 	);
 };
 
-export default ContainerCart;
+export default ContainerCartWidget;
