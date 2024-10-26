@@ -28,10 +28,8 @@ const FloatingCart = () => {
 								width: "100%",
 							}}>
 							<span>{prod.title}</span>
-							<span>Cantidad: {prod.stock}</span>
-							<span>
-								Subtotal: {`$ ${(prod.stock * prod.price).toFixed(2)}`}
-							</span>
+							<span>Cantidad: {prod.qty}</span>
+							<span>Subtotal: {`$ ${(prod.qty * prod.price).toFixed(2)}`}</span>
 							<Button variant="primary" onClick={() => remove(prod.id)}>
 								🛒
 							</Button>

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { ProviderContext } from "../Context/ProviderContext";
 
-const Item = ({ products }) => {
+const Item = ({ products, addToCart }) => {
 	const { cart, setCart } = useContext(ProviderContext);
 
 	return (
