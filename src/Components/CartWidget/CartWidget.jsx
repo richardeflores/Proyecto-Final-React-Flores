@@ -3,10 +3,9 @@ import { ProviderContext } from "../Context/ProviderContext";
 import { controllerShowCart } from "../Context/ContextCart";
 
 const CartWidget = () => {
-	const { setShowCart, showCart } = useContext(controllerShowCart);
-
 	const { qtyInCart } = useContext(ProviderContext);
-
+	const { setShowCart, showCart } = useContext(controllerShowCart);
+	const { cart } = useContext(ProviderContext);
 	const cartShowed = () => {
 		setShowCart(showCart === "none" ? "flex" : "none");
 	};

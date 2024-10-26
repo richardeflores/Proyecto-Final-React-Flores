@@ -1,42 +1,39 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const ProviderContext = createContext();
 
-const firstCart = [];
+// const firstCart = JSON.parse(localStorage.getItem("cart")) || [];
 
-export const CartProvider = ({ children }) => {
-	const { cart, setCart } = useState([]);
-	const addToCart = (item, qty) => {
-		const itemAdded = { ...item, qty };
-		const newCart = [...cart];
-		const inCart = newCart.find((product) => product.id === itemAdded.id);
+// export const CartProvider = ({ children }) => {
+// 	const { cart, setCart } = useState([firstCart]);
+// 	const addToCart = (item, qty) => {
+// 		const itemAdded = { ...item, qty };
+// 		const newCart = [...cart];
+// 		const inCart = newCart.find((product) => product.id === itemAdded.id);
 
-		if (inCart) {
-			inCart.qty += qty;
-			setCart(newCart);
-		} else {
-			newCart.push(itemAdded);
-		}
-		setCart([...newCart, itemAdded]);
-	};
+// 		if (inCart) {
+// 			inCart.qty += qty;
+// 			setCart(newCart);
+// 		} else {
+// 			newCart.push(itemAdded);
+// 		}
+// 		setCart([...newCart, itemAdded]);
+// 	};
 
-	const qtyInCart = () => {
-		return cart.reduce((acc, prod) => acc + prod.qty, 0);
-	};
+// 	const emptyCart = () => {
+// 		setCart([]);
+// 	};
 
-	const totalPrice = () => {
-		return cart.reduce((acc, prod) => acc + prod.price * prod.qty, 0);
-	};
-	const emptyCart = () => {
-		setCart([]);
-	};
+// 	useEffect(() => {
+// 		localStorage.setItem("cart", JSON.stringify(cart));
+// 	}, [cart]);
 
-	return (
-		<ProviderContext.Provider
-			value={{ cart, addToCart, qtyInCart, totalPrice, emptyCart }}>
-			{children}
-		</ProviderContext.Provider>
-	);
-};
+// 	return (
+// 		<ProviderContext.Provider
+// 			value={{ cart, addToCart, qtyInCart, totalPrice, emptyCart }}>
+// 			{children}
+// 		</ProviderContext.Provider>
+// 	);
+// };
 
 export default ProviderContext;

@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { Container, Card, Button, Col, Image } from "react-bootstrap";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { listCartContext } from "../ProviderContext/ProviderContextCart";
+import { ProviderContext } from "./Context/ProviderContext";
 import "./ItemCart.css";
 
 const ItemCart = ({ id, title, price, stock, image }) => {
-	const { remove } = useContext(listCartContext);
+	const { remove } = useContext(ProviderContext);
 
 	return (
 		<Container fluid className="itemInCart">

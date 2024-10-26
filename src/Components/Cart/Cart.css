@@ -1,0 +1,15 @@
+.itemInCart {
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 3rem;
+}
+
+button.btn.btn-outline-primary {
+	width: 100px;
+	margin-top: 20px;
+}
+
+.totalPrice {
+	text-align: center;
+	padding-top: 2rem;
+}

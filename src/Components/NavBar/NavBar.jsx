@@ -1,21 +1,20 @@
 import logo from "../../assets/LogoRF.svg";
-import CartWidget from "../CartWidget/CartWidget";
 import Container from "react-bootstrap/Container";
 import "./NavBar.css";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { Link, Outlet } from "react-router-dom";
-import ContainerCart from "../ContainerCartWidget/ContainerCartWidget";
+import { Link } from "react-router-dom";
+import CartWidget from "../CartWidget/CartWidget";
 import ContextCart from "../Context/ContextCart";
 
 const NavBar = () => {
 	return (
-		<ContextCart>
-			<>
+		<>
+			<ContextCart>
 				<Navbar bg="dark" data-bs-theme="dark" expand="lg">
 					<Container>
-						<Link to={"/"} className="navbar-brand">
+						<Link to={"/Preentrega2-React-Flores/"} className="navbar-brand">
 							<img
 								src={logo}
 								width="40"
@@ -31,34 +30,46 @@ const NavBar = () => {
 						/>
 						<Navbar.Collapse id="basic-navbar-nav" className="navIcon">
 							<Nav className="ms-auto">
-								<Link to={"/"} className="nav-link">
+								<Link to={"/Proyecto-Final-React-Flores/"} className="nav-link">
 									Inicio
 								</Link>
 								<NavDropdown title="Categorías" id="basic-nav-dropdown">
-									<Link to={"/category/Hombres"} className="dropdown-item">
+									<Link
+										to={"/Proyecto-Final-React-Flores/category/Hombres"}
+										className="dropdown-item">
 										Hombres
 									</Link>
 									<NavDropdown.Divider />
-									<Link to={"/category/Mujeres"} className="dropdown-item">
+									<Link
+										to={"/Proyecto-Final-React-Flores/category/Mujeres"}
+										className="dropdown-item">
 										Mujeres
 									</Link>
 									<NavDropdown.Divider />
-									<Link to={"/category/Ninos"} className="dropdown-item">
+									<Link
+										to={"/Proyecto-Final-React-Flores/category/Ninos"}
+										className="dropdown-item">
 										Niños
 									</Link>
 								</NavDropdown>
-								<Link to={"/contacto"} className="nav-link">
+								<Link
+									to={"/Proyecto-Final-React-Flores/contacto"}
+									className="nav-link">
 									Contacto
 								</Link>
+								<Link
+									to={"/Proyecto-Final-React-Flores/cart"}
+									className="nav-link">
+									Carrito
+								</Link>
 								<CartWidget />
-								<ContainerCart />
+								{/*<ContainerCart /> */}
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
 				</Navbar>
-				<Outlet />
-			</>
-		</ContextCart>
+			</ContextCart>
+		</>
 	);
 };
 export default NavBar;

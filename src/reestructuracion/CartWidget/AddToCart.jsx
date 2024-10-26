@@ -1,6 +1,6 @@
 import Button from "react-bootstrap/Button";
 import { useContext } from "react";
-import ProviderContext from "../Context/ProviderContext";
+import { ProviderContext } from "../Context/ProviderContext";
 
 const ButtonAddToCart = ({ id }) => {
 	let { addProduct } = useContext(ProviderContext);

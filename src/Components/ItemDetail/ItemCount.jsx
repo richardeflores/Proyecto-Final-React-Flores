@@ -1,16 +1,25 @@
-const ItemCount = ({ cantidad, handleRestar, handleSumar, handleAgregar }) => {
+import { useState } from "react";
+import Button from "react-bootstrap/Button";
+
+const ItemCount = ({ qty, handleRestar, handleSumar, handleAgregar }) => {
 	return (
 		<div>
 			<div className="item-count">
-				<button onClick={handleRestar}>-</button>
-				<p>{cantidad}</p>
-				<button onClick={handleSumar}>+</button>
+				<Button variant="secondary" onClick={handleRestar}>
+					-
+				</Button>
+				<p className="qty">{qty}</p>
+				<Button variant="secondary" onClick={handleSumar}>
+					+
+				</Button>
 			</div>
-			<button className="agregar-al-carrito" onClick={handleAgregar}>
+			<Button
+				variant="primary"
+				className="agregar-al-carrito"
+				onClick={handleAgregar}>
 				Agregar al carrito
-			</button>
+			</Button>
 		</div>
 	);
 };
-//Meter bootstrap
 export default ItemCount;

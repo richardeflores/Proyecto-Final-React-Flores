@@ -3,15 +3,14 @@ h1 {
 	padding-top: 50px;
 }
 
-.container {
+.columna {
 	display: flex;
 	flex-wrap: wrap;
 	align-content: center;
 	align-items: center;
-}
-
-.columna {
 	padding: 10px;
+	margin: 0 auto;
+	justify-content: center;
 }
 
 img.card-img-top {
@@ -29,4 +28,14 @@ h6 svg {
 button.btn.btn-outline-primary {
 	border-radius: 50%;
 	margin-left: 10px;
+}
+
+.titulo-tienda {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+div#botonesItem {
+	text-align: center;
 }

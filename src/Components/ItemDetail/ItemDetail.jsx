@@ -1,24 +1,24 @@
 import Card from "react-bootstrap/Card";
 import { Container, Row } from "react-bootstrap";
-import "./ItemDetailed.css";
-import ButtonAddToCart from "../CartWidget/AddToCart";
+import "./ItemDetail.css";
+// import ButtonAddToCart from "../CartWidget/AddToCart";
 import ItemCount from "./ItemCount";
 import { useContext, useState } from "react";
-import ProviderContext from "../Context/ProviderContext";
+import { ProviderContext } from "../Context/ProviderContext";
 
-function ItemDetailed({ item }) {
+const ItemDetail = ({ item }) => {
 	const { cart, addToCart } = useContext(ProviderContext);
-	console.log(cart);
 
-	const [cantidad, setCantidad] = useState(1);
+	const [qty, setQty] = useState(1);
 
 	const handleRestar = () => {
-		cantidad > 1 && setCantidad(cantidad - 1);
+		qty > 1 && setQty(qty - 1);
 	};
 
-	const handleSumar = () => {};
+	const handleSumar = () => {
+		qty < item.stock && setQty(qty + 1);
+	};
 
-	// Destructura las props
 	return (
 		<Container className="container-detailed">
 			<Row>
@@ -32,11 +32,11 @@ function ItemDetailed({ item }) {
 							$ {item.price}
 						</h6>
 						<ItemCount
-							cantidad={cantidad}
-							handleSumar={handleSumar}
+							qty={qty}
 							handleRestar={handleRestar}
+							handleSumar={handleSumar}
 							handleAgregar={() => {
-								addToCart(item, cantidad);
+								addToCart(item, qty);
 							}}
 						/>
 					</Card.Body>
@@ -44,6 +44,6 @@ function ItemDetailed({ item }) {
 			</Row>
 		</Container>
 	);
-}
+};
 
-export default ItemDetailed;
+export default ItemDetail;

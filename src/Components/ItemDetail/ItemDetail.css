@@ -16,3 +16,17 @@ button.btn.btn-outline-primary {
 	width: 100%;
 	justify-content: center;
 }
+
+.item-count {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-top: 1rem;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+p.qty {
+	margin-top: auto;
+	margin-bottom: auto;
+}

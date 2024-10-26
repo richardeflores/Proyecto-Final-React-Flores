@@ -3,7 +3,7 @@ import { Container, Card, Button, Col, Image } from "react-bootstrap";
 import { ProviderContext } from "../../Context/ProviderContext";
 import "./ItemCart.css";
 
-const ItemCart = ({ id, title, price, stock, image }) => {
+const ItemCart = () => {
 	const { remove } = useContext(ProviderContext);
 
 	return (
@@ -18,7 +18,7 @@ const ItemCart = ({ id, title, price, stock, image }) => {
 						}}
 						className="cardImage">
 						<Col xs={6} md={3}>
-							<Image src={image} thumbnail />
+							<Image src={prod.image} thumbnail />
 						</Col>
 						<Col
 							style={{
@@ -26,10 +26,12 @@ const ItemCart = ({ id, title, price, stock, image }) => {
 								flexDirection: "column",
 								width: "100%",
 							}}>
-							<span>{title}</span>
-							<span>Cantidad: {stock}</span>
-							<span>Subtotal: {`$ ${(stock * price).toFixed(2)}`}</span>
-							<Button variant="primary" onClick={() => remove(id)}>
+							<span>{prod.title}</span>
+							<span>Cantidad: {prod.stock}</span>
+							<span>
+								Subtotal: {`$ ${(prod.stock * prod.price).toFixed(2)}`}
+							</span>
+							<Button variant="primary" onClick={() => remove(prod.id)}>
 								🛒
 							</Button>
 						</Col>

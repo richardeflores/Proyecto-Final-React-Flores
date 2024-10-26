@@ -1,25 +1,35 @@
 import { useParams } from "react-router-dom";
-import Spinner from "../Loader/Loading";
-import ItemDetailed from "../ItemDetail/ItemDetailed";
+import Spinner from "../../reestructuracion/Loader/Loading";
+import ItemDetail from "../../Components/ItemDetail/ItemDetail";
 import { useState, useEffect } from "react";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "../firebase/Config";
+import { db } from "../../reestructuracion/firebase/Config";
+import { requestItemId } from "../helper/GetData";
 
 const ItemDetailContainer = () => {
 	const [item, setItem] = useState(null);
 	const id = useParams().id;
 
 	useEffect(() => {
-		const docRef = doc(db, "items", id);
-		getDoc(docRef).then((resp) => {
-			setItem({ ...resp.data(), id: resp.id });
+		requestItemId(Number(id)).then((res) => {
+			setItem(res);
 		});
 	}, [id]);
 
-	return (
-		<>
-			<ItemDetailed {...item} />
-		</>
-	);
+	return <>{item && <ItemDetail item={item} />}</>;
 };
+
+// const ItemDetailContainer = () => {
+// 	const [item, setItem] = useState(null);
+// 	const id = useParams().id;
+
+// 	useEffect(() => {
+// 		const docRef = doc(db, "items", id);
+// 		getDoc(docRef).then((resp) => {
+// 			setItem({ ...resp.data(), id: resp.id });
+// 		});
+// 	}, [id]);
+
+// 	return <>{item && <ItemDetail {...item} />}</>;
+// };
 export default ItemDetailContainer;
