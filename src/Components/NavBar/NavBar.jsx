@@ -15,7 +15,7 @@ const NavBar = () => {
 			<ContextCart>
 				<Navbar bg="dark" data-bs-theme="dark" expand="lg">
 					<Container>
-						<Link to={"/Preentrega2-React-Flores/"} className="navbar-brand">
+						<Link to={"/"} className="navbar-brand">
 							<img
 								src={logo}
 								width="40"
@@ -31,36 +31,26 @@ const NavBar = () => {
 						/>
 						<Navbar.Collapse id="basic-navbar-nav" className="navIcon">
 							<Nav className="ms-auto">
-								<Link to={"/Proyecto-Final-React-Flores/"} className="nav-link">
+								<Link to={"/"} className="nav-link">
 									Inicio
 								</Link>
 								<NavDropdown title="Categorías" id="basic-nav-dropdown">
-									<Link
-										to={"/Proyecto-Final-React-Flores/category/Hombres"}
-										className="dropdown-item">
+									<Link to={"/category/Hombres"} className="dropdown-item">
 										Hombres
 									</Link>
 									<NavDropdown.Divider />
-									<Link
-										to={"/Proyecto-Final-React-Flores/category/Mujeres"}
-										className="dropdown-item">
+									<Link to={"/category/Mujeres"} className="dropdown-item">
 										Mujeres
 									</Link>
 									<NavDropdown.Divider />
-									<Link
-										to={"/Proyecto-Final-React-Flores/category/Ninos"}
-										className="dropdown-item">
+									<Link to={"/category/Ninos"} className="dropdown-item">
 										Niños
 									</Link>
 								</NavDropdown>
-								<Link
-									to={"/Proyecto-Final-React-Flores/contacto"}
-									className="nav-link">
+								<Link to={"/contacto"} className="nav-link">
 									Contacto
 								</Link>
-								<Link
-									to={"/Proyecto-Final-React-Flores/cart"}
-									className="nav-link">
+								<Link to={"/cart"} className="nav-link">
 									Carrito
 								</Link>
 								<CartWidget />

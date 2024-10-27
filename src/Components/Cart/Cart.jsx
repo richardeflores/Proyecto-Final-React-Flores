@@ -41,7 +41,7 @@ const Cart = () => {
 
 			<h2 className="totalPrice">Precio Total: $ {totalPrice()} </h2>
 			<div id="btn-checkout">
-				<Link to="/Proyecto-Final-React-Flores/checkout">
+				<Link to="/checkout">
 					<Button>Checkout</Button>
 				</Link>
 			</div>

@@ -20,9 +20,7 @@ const Item = ({ products, addToCart }) => {
 						$ {products.price}
 					</h6>
 					<Col id="botonesItem">
-						<Link
-							to={`/Proyecto-Final-React-Flores/item/${products.id}`}
-							id="addCart">
+						<Link to={`/item/${products.id}`} id="addCart">
 							<Button variant="primary">Ver más</Button>
 						</Link>
 						<Button

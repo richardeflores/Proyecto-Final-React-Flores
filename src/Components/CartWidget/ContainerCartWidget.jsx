@@ -63,7 +63,7 @@ const ContainerCartWidget = () => {
 						{" "}
 						<h2>Precio total: {totalPrice()}</h2>
 						<div className="containerBtnCart">
-							<Link to="/Proyecto-Final-React-Flores/checkout">
+							<Link to="/checkout">
 								<Button>Checkout</Button>
 							</Link>
 							<Button onClick={clearCart}>

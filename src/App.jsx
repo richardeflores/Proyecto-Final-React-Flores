@@ -15,31 +15,15 @@ function App() {
 				<BrowserRouter>
 					<NavBar />
 					<Routes>
+						<Route main path="/" element={<ItemListContainer />} />
+						<Route path="/contacto" element={<Contacto />} />
+						<Route path="/item/:id" element={<ItemDetailContainer />} />
 						<Route
-							main
-							path="/Proyecto-Final-React-Flores/"
+							path="/category/:idCategory"
 							element={<ItemListContainer />}
 						/>
-						<Route
-							path="/Proyecto-Final-React-Flores/contacto"
-							element={<Contacto />}
-						/>
-						<Route
-							path="/Proyecto-Final-React-Flores/item/:id"
-							element={<ItemDetailContainer />}
-						/>
-						<Route
-							path="/Proyecto-Final-React-Flores/category/:idCategory"
-							element={<ItemListContainer />}
-						/>
-						<Route
-							path="/Proyecto-Final-React-Flores/cart"
-							element={<Cart />}
-						/>
-						<Route
-							path="/Proyecto-Final-React-Flores/checkout"
-							element={<Checkout />}
-						/>
+						<Route path="/cart" element={<Cart />} />
+						<Route path="/checkout" element={<Checkout />} />
 					</Routes>
 				</BrowserRouter>
 			</ShopProvider>
