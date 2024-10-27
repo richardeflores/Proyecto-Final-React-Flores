@@ -15,7 +15,7 @@ function App() {
 				<BrowserRouter>
 					<NavBar />
 					<Routes>
-						<Route main path="/" element={<ItemListContainer />} />
+						<Route main path="" element={<ItemListContainer />} />
 						<Route path="/contacto" element={<Contacto />} />
 						<Route path="/item/:id" element={<ItemDetailContainer />} />
 						<Route
