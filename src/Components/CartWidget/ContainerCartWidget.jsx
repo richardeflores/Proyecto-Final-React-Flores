@@ -3,6 +3,7 @@ import FloatingCart from "./FloatingCart";
 import { useContext } from "react";
 import { ProviderContext } from "../Context/ProviderContext";
 import "./ContainerCartWidget.css";
+import { Link } from "react-router-dom";
 
 const ContainerCartWidget = () => {
 	const { cart, totalPrice, emptyCart } = useContext(ProviderContext);
@@ -49,6 +50,7 @@ const ContainerCartWidget = () => {
 									image={product.image}
 									stock={product.stock}
 									price={product.price}
+									qty={product.qty}
 								/>
 							</>
 						))}
@@ -61,7 +63,9 @@ const ContainerCartWidget = () => {
 						{" "}
 						<h2>Precio total: {totalPrice()}</h2>
 						<div className="containerBtnCart">
-							<Button>Checkout</Button>
+							<Link to="/Proyecto-Final-React-Flores/checkout">
+								<Button>Checkout</Button>
+							</Link>
 							<Button onClick={clearCart}>
 								<h6>🗑️</h6>
 							</Button>

@@ -13,3 +13,8 @@ button.btn.btn-outline-primary {
 	text-align: center;
 	padding-top: 2rem;
 }
+
+#btn-checkout {
+	text-align: center;
+	padding-top: 20px;
+}

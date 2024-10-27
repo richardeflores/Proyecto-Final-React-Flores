@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Container, Card, Button, Col, Image } from "react-bootstrap";
 import { ProviderContext } from "../Context/ProviderContext";
 import "./Cart.css";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
 	const { remove, cart, totalPrice } = useContext(ProviderContext);
@@ -37,7 +38,13 @@ const Cart = () => {
 					</Card>
 				</div>
 			))}
+
 			<h2 className="totalPrice">Precio Total: $ {totalPrice()} </h2>
+			<div id="btn-checkout">
+				<Link to="/Proyecto-Final-React-Flores/checkout">
+					<Button>Checkout</Button>
+				</Link>
+			</div>
 		</Container>
 	);
 };

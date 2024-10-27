@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Contacto from "./Components/Contacto/Contacto";
 import { ShopProvider } from "./Components/Context/ProviderContext";
 import Cart from "./Components/Cart/Cart";
+import Checkout from "./Components/Checkout/Checkout";
 
 function App() {
 	return (
@@ -34,6 +35,10 @@ function App() {
 						<Route
 							path="/Proyecto-Final-React-Flores/cart"
 							element={<Cart />}
+						/>
+						<Route
+							path="/Proyecto-Final-React-Flores/checkout"
+							element={<Checkout />}
 						/>
 					</Routes>
 				</BrowserRouter>

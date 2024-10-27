@@ -3,13 +3,14 @@ import { Container, Card, Button, Col, Image } from "react-bootstrap";
 import { ProviderContext } from "../Context/ProviderContext";
 import "./FloatingCart.css";
 
-const FloatingCart = ({ id, title, price, stock, image }) => {
+const FloatingCart = ({ id, title, price, image, qty }) => {
 	const { remove } = useContext(ProviderContext);
 
 	return (
 		<Container fluid className="itemInCart">
 			<div>
 				<Card
+					key={id}
 					style={{
 						width: "100%",
 						display: "flex",
@@ -26,8 +27,8 @@ const FloatingCart = ({ id, title, price, stock, image }) => {
 							width: "100%",
 						}}>
 						<span>{title}</span>
-						<span>Cantidad: {stock}</span>
-						<span>Subtotal: {`$ ${(stock * price).toFixed(2)}`}</span>
+						<span>Cantidad: {qty}</span>
+						<span>Subtotal: {`$ ${(qty * price).toFixed(2)}`}</span>
 						<Button variant="primary" onClick={() => remove(id)}>
 							🗑️
 						</Button>
