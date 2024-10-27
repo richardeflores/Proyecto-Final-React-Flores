@@ -1,13 +1,12 @@
 import { Container, Button } from "react-bootstrap";
-import ItemCart from "./FloatingCart";
+import FloatingCart from "./FloatingCart";
 import { useContext } from "react";
 import { ProviderContext } from "../Context/ProviderContext";
-import { controllerShowCart } from "../Context/ContextCart";
 import "./ContainerCartWidget.css";
 
 const ContainerCartWidget = () => {
 	const { cart, totalPrice, emptyCart } = useContext(ProviderContext);
-	const { showCart, setShowCart } = useContext(controllerShowCart);
+	const { showCart, setShowCart } = useContext(ProviderContext);
 
 	const style = {
 		display: showCart,
@@ -37,13 +36,13 @@ const ContainerCartWidget = () => {
 			<div>
 				{cart.length === 0 ? (
 					<span className="emptyCart">
-						Your cart is empty, Let's find some products!.
+						Tu carrito está vacio. ¡Agreguemos algo!.
 					</span>
 				) : (
 					<div className="contenedorLista">
 						{cart.map((product) => (
 							<>
-								<ItemCart
+								<FloatingCart
 									key={product.id}
 									id={product.id}
 									title={product.title}

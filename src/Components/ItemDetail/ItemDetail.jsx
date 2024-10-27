@@ -22,7 +22,7 @@ const ItemDetail = ({ item }) => {
 	return (
 		<Container className="container-detailed">
 			<Row>
-				<Card style={{ width: "18rem" }}>
+				<Card style={{ width: "18rem" }} key={item.id}>
 					<Card.Img variant="top" src={item.image} />
 					<Card.Body>
 						<Card.Title>{item.title}</Card.Title>

@@ -43,6 +43,8 @@ export const ShopProvider = ({ children }) => {
 		localStorage.setItem("cart", JSON.stringify(cart));
 	}, [cart]);
 
+	const [showCart, setShowCart] = useState("none");
+
 	return (
 		<ProviderContext.Provider
 			value={{
@@ -53,32 +55,10 @@ export const ShopProvider = ({ children }) => {
 				remove,
 				totalPrice,
 				emptyCart,
+				showCart,
+				setShowCart,
 			}}>
 			{children}
 		</ProviderContext.Provider>
 	);
 };
-
-// export const CartProvider = ({ children }) => {
-// 	const { cart, setCart } = useState([firstCart]);
-// 	const addToCart = (item, qty) => {
-// 		const itemAdded = { ...item, qty };
-// 		const newCart = [...cart];
-// 		const inCart = newCart.find((product) => product.id === itemAdded.id);
-
-// 		if (inCart) {
-// 			inCart.qty += qty;
-// 			setCart(newCart);
-// 		} else {
-// 			newCart.push(itemAdded);
-// 		}
-// 		setCart([...newCart, itemAdded]);
-// 	};
-
-// 	return (
-// 		<ProviderContext.Provider
-// 			value={{ cart, addToCart, qtyInCart, totalPrice, emptyCart }}>
-// 			{children}
-// 		</ProviderContext.Provider>
-// 	);
-// };

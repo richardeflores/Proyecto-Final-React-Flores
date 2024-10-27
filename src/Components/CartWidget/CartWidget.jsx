@@ -1,15 +1,13 @@
 import { useContext } from "react";
 import { ProviderContext } from "../Context/ProviderContext";
-import { controllerShowCart } from "../Context/ContextCart";
 
 const CartWidget = () => {
-	const { qtyInCart } = useContext(ProviderContext);
-	const { setShowCart, showCart } = useContext(controllerShowCart);
-	const { cart } = useContext(ProviderContext);
+	const { qtyInCart, setShowCart, showCart, cart } =
+		useContext(ProviderContext);
 	const cartShowed = () => {
 		setShowCart(showCart === "none" ? "flex" : "none");
 	};
-	console.log(showCart);
+	console.log(cart);
 	return (
 		<div className="carrito" onClick={cartShowed}>
 			🛒
