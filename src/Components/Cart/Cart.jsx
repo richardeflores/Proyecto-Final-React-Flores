@@ -7,6 +7,10 @@ import { Link } from "react-router-dom";
 const Cart = () => {
 	const { remove, cart, totalPrice } = useContext(ProviderContext);
 
+	const clearCart = () => {
+		emptyCart();
+	};
+
 	return (
 		<div>
 			{cart.length === 0 ? (
@@ -52,10 +56,13 @@ const Cart = () => {
 					))}
 
 					<h2 className="totalPrice">Precio Total: $ {totalPrice()} </h2>
-					<div id="btn-checkout">
+					<div className="containerBtnCart">
 						<Link to="/checkout">
 							<Button>Checkout</Button>
 						</Link>
+						<Button onClick={clearCart} variant="outline-primary">
+							🗑️
+						</Button>
 					</div>
 				</Container>
 			)}

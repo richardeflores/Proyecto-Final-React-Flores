@@ -66,8 +66,8 @@ const ContainerCartWidget = () => {
 							<Link to="/checkout">
 								<Button>Checkout</Button>
 							</Link>
-							<Button onClick={clearCart}>
-								<h6>🗑️</h6>
+							<Button onClick={clearCart} variant="outline-primary">
+								🗑️
 							</Button>
 						</div>
 					</>

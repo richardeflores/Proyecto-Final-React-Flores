@@ -29,7 +29,10 @@ const FloatingCart = ({ id, title, price, image, qty }) => {
 						<span>{title}</span>
 						<span>Cantidad: {qty}</span>
 						<span>Subtotal: {`$ ${(qty * price).toFixed(2)}`}</span>
-						<Button variant="primary" onClick={() => remove(id)}>
+						<Button
+							id="btn-clear-float"
+							variant="outline-primary"
+							onClick={() => remove(id)}>
 							🗑️
 						</Button>
 					</Col>

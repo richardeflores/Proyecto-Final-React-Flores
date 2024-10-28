@@ -18,3 +18,14 @@ button.btn.btn-outline-primary {
 	text-align: center;
 	padding-top: 20px;
 }
+
+.containerBtnCart {
+	justify-content: space-around;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+button.btn.btn-outline-primary {
+	margin-top: 0px;
+}
