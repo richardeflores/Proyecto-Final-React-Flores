@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Button from "react-bootstrap/Button";
 
 const ItemCount = ({ qty, handleRestar, handleSumar, handleAgregar }) => {

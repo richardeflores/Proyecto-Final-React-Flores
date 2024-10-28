@@ -4,9 +4,10 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { ProviderContext } from "../Context/ProviderContext";
+import AddToCart from "./AddToCart";
 
-const Item = ({ products, addToCart }) => {
-	const { cart, setCart } = useContext(ProviderContext);
+const Item = ({ products }) => {
+	const { cart, addToCart } = useContext(ProviderContext);
 
 	return (
 		<Col lg={3} md={6} xs={12} className="columna">
@@ -23,12 +24,11 @@ const Item = ({ products, addToCart }) => {
 						<Link to={`/item/${products.id}`} id="addCart">
 							<Button variant="primary">Ver más</Button>
 						</Link>
-						<Button
-							className="btn-item-list"
-							variant="outline-primary"
-							id="addCart">
-							🛒
-						</Button>
+						<AddToCart
+							handleAgregar={() => {
+								addToCart(products, 1);
+							}}
+						/>
 					</Col>
 				</Card.Body>
 			</Card>
