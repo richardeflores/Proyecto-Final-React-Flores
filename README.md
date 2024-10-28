@@ -5,7 +5,6 @@ Ecommerce para la venta de prendas de vestir. Hecho en **React + Vite**, se util
 Este proyecto está desplegado en las siguientes plataformas:
 
 - Vercel: https://proyecto-final-react-flores.vercel.app/
-- Gitub pages: https://richardeflores.github.io/Proyecto-Final-React-Flores/
 
 ---
 
